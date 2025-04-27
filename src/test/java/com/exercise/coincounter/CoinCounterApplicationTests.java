@@ -16,11 +16,23 @@ class CoinCounterApplicationTests {
     private MockMvc mvc;
 
     @Test
-    void contextLoads() throws Exception {
+    void shouldBeSuccessful_onValidRequest() throws Exception {
         var priceInCent = 100;
-        mvc.perform(MockMvcRequestBuilders.post("/count?priceInCent=" + priceInCent))
+        mvc.perform(MockMvcRequestBuilders.post(toCountEndpoint(priceInCent)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].value").value(1))
                 .andExpect(jsonPath("$[0].type").value(100));
+    }
+
+    @Test
+    void shouldReturnValidationError_onNegativePriceInput() throws Exception {
+        var priceInCent = -1;
+        mvc.perform(MockMvcRequestBuilders.post(toCountEndpoint(priceInCent)))
+                .andExpect(status().isBadRequest())
+                .andExpect(status().reason("Validation failure"));
+    }
+
+    private static String toCountEndpoint(int priceInCent) {
+        return "/count?priceInCent=" + priceInCent;
     }
 }

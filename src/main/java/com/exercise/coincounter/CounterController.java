@@ -13,7 +13,7 @@ public class CounterController {
 
     @CrossOrigin
     @PostMapping("/count")
-    public List<CounterResult> count(@RequestParam("priceInCent") @Min(0) Integer priceInCent) {
+    public List<CounterResult> count(@RequestParam("priceInCent") @Min(value = 0) Integer priceInCent) {
         return Counter.count(priceInCent);
     }
 }
