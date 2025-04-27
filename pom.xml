@@ -8,19 +8,20 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.exercise</groupId>
 	<artifactId>coincounter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<name>coincounter</name>
 	<description>A backend to count coins</description>
+
 	<properties>
 		<java.version>21</java.version>
+		<hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
 	</properties>
+
 	<dependencies>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -28,7 +29,7 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.1.Final</version>
+			<version>${hibernate-validator.version}</version>
 		</dependency>
 
 		<dependency>

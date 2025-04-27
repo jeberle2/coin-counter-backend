@@ -14,9 +14,6 @@ public class CounterController {
     @CrossOrigin
     @PostMapping("/count")
     public List<CounterResult> count(@RequestParam("priceInCents") @Min(0) Integer priceInCents) {
-        System.out.println(priceInCents);
-
-
-        return List.of(CounterResult.builder().type(100).value(1000).build());
+        return Counter.count(priceInCents);
     }
 }
