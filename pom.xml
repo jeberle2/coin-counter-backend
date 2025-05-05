@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.exercise</groupId>
-	<artifactId>coincounter</artifactId>
+	<artifactId>coin-counter-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>coincounter</name>
